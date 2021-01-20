@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>论文信息查看界面</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body {
+            background:#FFF
+        }
+    </style>
+</head>
+
+<body>
+<form method="post" action="/academic/sgetonestu">
+<div id="contentWrap">
+
+    <div class="pageTitle">
+
+    </div>
+    <div class="pageColumn">
+        <div class="pageButton">
+            <input  type="text" name="namestu" value="学生姓名">
+
+            <input type="submit" name="tijiao" value="查询">
+            <a href="/student/list" target="right">返回学生主页</a>
+        </div>
+        <table>
+            <thead>
+
+            <th width="10%">作者</th>
+            <th width="10%">论文名称</th>
+            <th width="10%">期刊名称</th>
+            <th width="10%">第几作者</th>
+            </thead>
+            <tbody>
+            <tr th:each="academic:${listartical}">
+                <th width="10%" th:text="${academic.name}">作者"</th>
+                <th width="10%" th:text="${academic.arname}">论文名称</th>
+                <th width="10%" th:text="${academic.artical}">期刊名称</th>
+                <th width="10%" th:text="${academic.authorlevel}">第几作者</th>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pageButton">
+        </div>
+        <div class="pageButton">
+            <p><font size="10" face="arial" color="green">论文发表情况</font></p>
+        </div>
+        <div class="pageButton">
+        </div>
+        <table>
+            <thead>
+            <th width="20%">学生姓名</th>
+            <th width="20%">已发论文总篇数</th>
+            </thead>
+            <tbody>
+            <tr th:each="cresult:${listorderbyname}">
+                <th width="20%" th:text="${cresult.getSname()}">作者"></th>
+                <th width="20%" th:text="${cresult.getScount()}">发文数量"></th>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pageButton">
+        </div>
+
+
+
+    </div></div>
+</form>
+</body>
+
+</html>

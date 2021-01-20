@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>查看学生信息界面</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body {
+            background:#FFF
+        }
+    </style>
+</head>
+
+<body>
+<div id="contentWrap">
+    <div class="pageTitle"></div>
+    <div class="pageColumn">
+        <div class="pageButton"></div>
+        <table>
+            <thead>
+
+            <th width="10%">学生编号</th>
+            <th width="10%">姓名</th>
+            <th width="10%">性别</th>
+            <th width="10%">生源地</th>
+            <th width="10%">成绩排名</th>
+            <th width="10%">年级</th>
+            <th width="10%">本科院校</th>
+            <th width="10%">个人介绍</th>
+            </thead>
+            <tbody>
+            <tr th:each="student:${list}">
+
+                <th width="10%" th:text="${student.sno}">学生编号"</th>
+                <th width="10%" th:text="${student.sname}">姓名</th>
+                <th width="10%" th:text="${student.ssex}">性别</th>
+                <th width="10%" th:text="${student.shometown}">生源地</th>
+                <th width="10%" th:text="${student.ssort}">成绩排名</th>
+                <th width="10%" th:text="${student.sclass}">年级</th>
+                <th width="10%" th:text="${student.scollege}">本科院校</th>
+                <th width="10%" th:text="${student.sintroduce}">介绍</th>
+
+            </tr>
+
+
+
+
+            </tbody>
+        </table>
+    </div></div>
+</body>
+</html>

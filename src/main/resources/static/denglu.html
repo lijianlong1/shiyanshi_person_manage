@@ -1,0 +1,44 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+
+<link href="css/denglu.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="login">
+	<div class="login_logo" style="margin-top:68px;"><img src="images/main.png"></div>
+<!--	form表单可以用来处理信息和反馈相应的提交信息-->
+	<form action="/user_all/login" method="post">
+<div class="login_m">
+	<div class="login_boder">
+		<div class="login_padding">
+
+			<h2>用户名</h2>
+			<label>
+				<input type="text" name="nameinput" id="username" class="txt_input txt_input2">
+			</label>
+			<h2>密码</h2>
+			<label>
+				<input type="password"  name="password" id="userpwd" class="txt_input">
+			</label>
+			<div class="rem_sub">
+				<div class="rem_sub_l">
+					<input type="checkbox" name="checkbox" id="save_me">
+					<label>记住</label>
+				</div>
+				<label>
+					<input type="submit" class="sub_button" name="button" id="button" value="登录" style="opacity: 0.7;">
+				</label>
+			</div>
+		</div>
+	</div><!--login_boder end-->
+</div><!--login_m end-->
+	</form>
+<p align="center">解释权归教三-302智能信息研究所</p>
+
+</body>
+
+</html>

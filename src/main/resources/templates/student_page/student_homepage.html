@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>学生页面</title>
+    <link href="/css/student_homepage.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //setMenuHeight
+            $('.menu').height($(window).height()-51-27-26);
+            $('.sidebar').height($(window).height()-51-27-26);
+            $('.page').height($(window).height()-51-27-26);
+            $('.page iframe').width($(window).width()-15-168);
+
+            //menu on and off
+            $('.btn').click(function(){
+                $('.menu').toggle();
+
+                if($(".menu").is(":hidden")){
+                    $('.page iframe').width($(window).width()-15+5);
+                }else{
+                    $('.page iframe').width($(window).width()-15-168);
+                }
+            });
+
+            //
+            $('.subMenu a[href="#"]').click(function(){
+                $(this).next('ul').toggle();
+                return false;
+            });
+        })
+    </script>
+
+
+</head>
+
+<body>
+<form action="/student/getstu" method="post">
+<div id="wrap">
+    <div id="header">
+        <div class="logo fleft"></div>
+        <div class="nav fleft">
+            <ul>
+                <div class="nav-left fleft"></div>
+                <li class="first">学生端</li>
+                <li><a th:text="${session.user_one}"></a>:你好！</li>
+
+                
+                <li>实验室简介</li>
+                <li>待开发模块</li>
+                <div class="nav-right fleft"></div>
+            </ul>
+        </div>
+        <a class="logout fright" href="/user_all/logout"></a>
+        <div class="clear"></div>
+        <div class="subnav">
+            <div class="subnavLeft fleft"></div>
+            <div class="fleft"></div>
+            <div class="subnavRight fright"></div>
+        </div>
+    </div><!--#header -->
+    <div id="content">
+        <div class="space"></div>
+        <div class="menu fleft">
+            <ul>
+                <li class="subMenuTitle">学生操作栏</li>
+                <li class="subMenu"><a href="#">学生信息</a>
+                    <ul>
+                        <li><a><button type="submit" name="submit" th:value="${session.user_one}">个人信息修改</button></a></li>
+                        <li><a><button type="submit" name="submit" value="学生信息查看">学生信息查看</button></a></li>
+                    </ul>
+                </li>
+
+                <li class="subMenu"><a href="#">教师信息</a>
+                    <ul>
+                        <li><a><button type="submit" name="submit" value="教师信息查看">教师信息查看</button></a></li>
+                    </ul>
+                </li>
+                <li class="subMenu"><a href="#">论文信息</a>
+                    <ul>
+                        <li><a><button type="submit" name="submit" value="论文查看">论文查看</button></a></li>
+                        <li><a><button type="submit" name="submit" value="论文录入">论文录入</button></a></li>
+                    </ul>
+                </li>
+                <li class="subMenu"><a href="https://www.cnki.net/" target="right">知网入口</a></li>
+                <li class="subMenu"><a href="http://59.64.79.18/G_Client/Framework/login_admin.aspx#/G_Client/PersonalInformation/Prosonal_Education_Master_From_View.aspx" target="right">研究生教务入口</a></li>
+
+                <li class="subMenu"><a href="http://www.baidu.com" target="right">百度百科</a></li>
+
+
+            </ul>
+
+        </div>
+        <div class="sidebar fleft"><div class="btn"></div></div>
+
+<!--        在此进行页面信息的展示主界面-->
+
+        <div class="page">
+            <iframe width="100%" scrolling="auto" height="100%" frameborder="false" allowtransparency="true" style="border: medium none;"  id="rightMain" name="right"></iframe>
+        </div>
+
+
+
+
+    </div><!--#content -->
+    <div class="clear">
+
+    </div>
+    <div id="footer">
+        版权：归教三-302实验室所有
+    </div><!--#footer -->
+</div><!--#wrap -->
+<!--    <input type="hidden" th:value="${session.user_one}" name="user">-->
+</form>
+<div style="text-align:center;">
+    <p>版权：<a href="http://www.baidu.com/" target="_blank">归教三-302实验室所有</a></p>
+</div>
+</body>
+</html>
